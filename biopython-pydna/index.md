@@ -1,27 +1,7 @@
 # Biopython and pydna for bioinformatics
 
-**Biopython** helps read biological files and analyse sequences. Pydna** builds on Biopython to model double-stranded DNA and laboratory operations such as PCR and cloning.
-
-These three short examples use **example sequences**. The examples follow the official documentation.
-
-## Getting started
-
-Open a terminal in this folder and install the libraries in a virtual environment:
-
-```bash
-conda create pymod
-conda install conda-pypi::pydna --solver rattler # this will install biopython as well
-```
-
-In Spyder, select an interpreter containing these libraries, open a script and run it. Inspect the named results in the Variable Explorer or enter their names in the IPython console. If running selected lines without `__file__`, set the working directory to this folder first.
-
-For terminal exploration, run a script interactively, for example:
-
-```bash
-python -i 01_read_fasta.py
-```
-
-Then enter `summary`. The scripts keep their results as variables and do not print automatically. Run each example independently.
+**Biopython** helps read biological files and analyse sequences. **Pydna** builds on Biopython to 
+model double-stranded DNA and laboratory operations such as PCR and cloning.
 
 ## 1. Summarize a FASTA file — Biopython
 
@@ -41,7 +21,11 @@ except NameError:
     here = Path.cwd()
 
 records = list(SeqIO.parse(here / "sequences.fasta", "fasta"))
-summary = [(r.id, len(r), round(100 * gc_fraction(r.seq), 1)) for r in records]
+
+results = []
+for r in records:
+    results.append((r.id, len(r), round(100 * gc_fraction(r.seq), 1)))
+
 # Inspect summary: (sequence ID, length in bp, GC percentage).
 ```
 
