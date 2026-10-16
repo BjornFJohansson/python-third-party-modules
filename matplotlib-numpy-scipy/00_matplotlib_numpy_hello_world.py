@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 
 plt.plot([1,2,3,4], [1,23,2,4])
 plt.ylabel('some numbers')
-
 plt.show()
-
 
 """ NumPy ."""
 
@@ -18,9 +16,6 @@ tt = 100
 t = np.linspace(t0,tt)
 
 t
-
-import matplotlib.pyplot as plt
-import numpy as np
 
 # Data for plotting
 
